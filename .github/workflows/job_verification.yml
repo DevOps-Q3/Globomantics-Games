@@ -7,7 +7,7 @@ on:
     branches: [recette, main]
 
 jobs:
-  info-build:
+  verificationinfo-build:
     runs-on: ubuntu-latest    
     permissions:
       actions: read
@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [csharp, java, javascript]
+        language: [csharp, javascript]
 
     steps:
     - name: Checkout du code
@@ -33,9 +33,6 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-
-    - name: Compiler le projet (si nécessaire)
-      run: dotnet build
 
     - name: Exécuter l’analyse CodeQL
       uses: github/codeql-action/analyze@v2
