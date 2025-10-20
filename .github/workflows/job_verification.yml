@@ -1,0 +1,21 @@
+name: Vérification des Infos du Build
+
+on:
+  push:
+    branches:
+      - [develop]
+  pull_request:
+
+jobs:
+  info-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v4
+
+    - name: Afficher la branche en cours
+      run: echo "Branche en cours de build : ${{ github.ref_name }}"
+
+    - name: Afficher la version de .NET SDK
+      run: dotnet --version
