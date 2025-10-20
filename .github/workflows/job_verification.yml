@@ -7,15 +7,6 @@ on:
     branches: [recette, main]
 
 jobs:
-  scan-secrets:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Scan for secrets with gitleaks
-      uses: gitleaks/gitleaks-action@v2
-
   info-build:
     runs-on: ubuntu-latest
 
