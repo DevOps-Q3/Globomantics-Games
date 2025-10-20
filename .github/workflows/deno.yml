@@ -1,0 +1,33 @@
+name: Job de vérification
+
+on:
+  push:
+    branches: ["develop"]
+
+permissions:
+  contents: read
+
+jobs:
+  buid_et_verification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+         dotnet-version: 5.0.x1
+
+      - name: Nom de la branche et projet GitHub
+      - run: echo "The name of your branch is ${{ github.ref }}
+
+
+
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno test -A
