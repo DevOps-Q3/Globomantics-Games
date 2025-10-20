@@ -3,7 +3,8 @@ name: Vérification des Infos du Build
 on:
   push:
     branches: [develop]
-  pull_request:
+  pull_request: 
+    branches: [recette, main]
 
 jobs:
   info-build:
